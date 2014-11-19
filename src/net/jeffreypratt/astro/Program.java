@@ -16,14 +16,6 @@ public class Program {
         Collection<Planet> planets = new HashSet<>();
 
         for (int i = 0; i < planetCount; i++)
-            planets.add(generator.generate());
-
-        Stream<Planet> earthLikePlanets = planets.stream().filter(planet -> planet.getEsi() > 0.8);
-
-        earthLikePlanets.forEach(planet -> {
-            if (planet.getEsi() > MINIMUM_ESI) {
-                displayer.display(planet);
-            }
-        });
+            displayer.display(generator.generate());
     }
 }
